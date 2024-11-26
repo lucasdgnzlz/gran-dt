@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Proyecto web inspirado en Gran DT",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "github.com/lucasdgnzlz/gran-dt"
@@ -15,5 +14,11 @@
     "juego"
   ],
   "author": "Lucas Damian Gonzalez",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^9.15.0"
+  }
 }
