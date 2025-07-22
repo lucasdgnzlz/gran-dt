@@ -19,7 +19,7 @@
   "author": "Lucas Damian Gonzalez",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.7"
   },
   "devDependencies": {
     "eslint": "^9.15.0"
