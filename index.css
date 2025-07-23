@@ -1,0 +1,27 @@
+body {
+  display: flex;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.contenedor-logo {
+  max-width: 300px;
+  max-height: 300px;
+}
+.logo-gran-dt {
+  width: 250px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.contenedor-botones-inicio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
