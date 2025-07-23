@@ -10,12 +10,51 @@
   <body>
     <main class="contenedor-inicio-sesion">
       <div class="contenedor-logo">
-        <img src="/images/logo-gran-dt.png" class="logo-gran-dt" alt="Logo Gran DT"/>
+        <img src="/images/logo-gran-dt.png" class="logo-gran-dt" alt="Logo Gran DT" />
       </div>
 
       <div class="d-grid gap-2 col-6 mx-auto">
-        <button class="btn btn-primary" type="button">Crear cuenta</button>
-        <button class="btn btn-outline-secondary" type="button">Ya tengo cuenta</button>
+        <button id="" class="btn btn-primary boton-crear-cuenta" type="button">Crear cuenta</button>
+        <button id="" class="btn btn-outline-secondary boton-ya-tengo-cuenta" type="button">Ya tengo cuenta</button>
+      </div>
+
+      <div class="contenedor-formulario-crear-cuenta" id="oculto">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Confirmar contraseña</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" />
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+            <label class="form-check-label" for="exampleCheck1">Deseo recibir noticias sobre Gran DT</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Registrarse</button>
+        </form>
+      </div>
+
+      <div class="contenedor-formulario-inicio-de-sesion" id="oculto">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" />
+          </div>
+          <div class="mb-3 form-check contenedor-enlace-recupero-contrasenia">
+            <a href="" class="form-check-label" for="exampleCheck1">¿Olvidaste tu contraseña?</a>
+          </div>
+          <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        </form>
       </div>
     </main>
 
