@@ -15,7 +15,9 @@
 
       <div class="d-grid gap-2 col-6 mx-auto">
         <button id="" class="btn btn-primary boton-crear-cuenta" type="button">Crear cuenta</button>
-        <button id="" class="btn btn-outline-secondary boton-ya-tengo-cuenta" type="button">Ya tengo cuenta</button>
+        <button id="" class="btn btn-outline-secondary boton-ya-tengo-cuenta" type="button">
+          Ya tengo cuenta
+        </button>
       </div>
 
       <div class="contenedor-formulario-crear-cuenta" id="oculto">
@@ -23,14 +25,17 @@
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <p class="mensaje-error"></p>
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Contraseña</label>
             <input type="password" class="form-control" id="exampleInputPassword1" />
+            <p class="mensaje-error"></p>
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Confirmar contraseña</label>
             <input type="password" class="form-control" id="exampleInputPassword1" />
+            <p class="mensaje-error"></p>
           </div>
           <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1" />
@@ -45,10 +50,12 @@
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <p class="mensaje-error">-</p>
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Contraseña</label>
             <input type="password" class="form-control" id="exampleInputPassword1" />
+            <p class="mensaje-error">-</p>
           </div>
           <div class="mb-3 form-check contenedor-enlace-recupero-contrasenia">
             <a href="" class="form-check-label" for="exampleCheck1">¿Olvidaste tu contraseña?</a>
@@ -58,6 +65,6 @@
       </div>
     </main>
 
-    <script src="src/index.js"></script>
+    <script src="src/index.js" type="module"></script>
   </body>
 </html>
