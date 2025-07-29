@@ -1,3 +1,7 @@
+/* Inicio página */
+
+import {validarFormularioRegistro} from "./validaciones/validaciones.js";
+
 const $botonCrearCuenta = document.querySelector(".boton-crear-cuenta");
 const $botonYaTengoCuenta = document.querySelector(".boton-ya-tengo-cuenta");
 
@@ -25,3 +29,21 @@ function mostrarFormularioInicioDeSesion() {
 	const $contenedorFormularioInicioDeSesion = document.querySelector(".contenedor-formulario-inicio-de-sesion");
 	$contenedorFormularioInicioDeSesion.id = "";
 }
+
+/* Registro */
+
+const $formularioRegistro = document.querySelector(".formulario-registro");
+
+$formularioRegistro.addEventListener("submit", (e) => {
+	e.preventDefault();
+
+	const datosFormulario = new FormData($formularioRegistro);
+
+	const datos = {
+		email: datosFormulario.get("email"),
+		contraseñaRegistro: datosFormulario.get("contraseña-registro"),
+		contraseñaRegistroConfirmacion: datosFormulario.get("contraseña-registro-confirmacion")
+	};
+
+	validarFormularioRegistro(datos);
+});
