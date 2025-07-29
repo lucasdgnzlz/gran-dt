@@ -21,27 +21,27 @@
       </div>
 
       <div class="contenedor-formulario-crear-cuenta" id="oculto">
-        <form>
+        <form class="formulario-registro">
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-            <p class="mensaje-error"></p>
+            <label for="email-de-registro" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email-de-registro" name="email" aria-describedby="emailHelp" />
+            <p class="mensaje-error mensaje-error-email">-</p>
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" />
-            <p class="mensaje-error"></p>
+            <label for="contraseña-de-registro-uno" class="form-label">Contraseña</label>
+            <input type="password" class="form-control contraseñas-registro contraseña-de-registro-uno" name="contraseña-registro" />
+            <p class="mensaje-error mensaje-error-contraseña mensaje-error-coincidencia-contraseñas">-</p>
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Confirmar contraseña</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" />
-            <p class="mensaje-error"></p>
+            <label for="contraseña-de-registro-dos" class="form-label">Confirmar contraseña</label>
+            <input type="password" class="form-control contraseñas-registro contraseña-de-registro-dos" name="contraseña-registro-confirmacion" />
+            <p class="mensaje-error mensaje-error-contraseña-confirmacion mensaje-error-coincidencia-contraseñas">-</p>
           </div>
           <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+            <input type="checkbox" class="form-check-input" id="confirmacion-noticias" />
             <label class="form-check-label" for="exampleCheck1">Deseo recibir noticias sobre Gran DT</label>
           </div>
-          <button type="submit" class="btn btn-primary">Registrarse</button>
+          <button type="submit" class="btn btn-primary boton-registrarse">Registrarse</button>
         </form>
       </div>
 
