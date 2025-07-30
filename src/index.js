@@ -41,8 +41,8 @@ $formularioRegistro.addEventListener("submit", (e) => {
 
 	const datos = {
 		email: datosFormulario.get("email"),
-		contraseñaRegistro: datosFormulario.get("contraseña-registro"),
-		contraseñaRegistroConfirmacion: datosFormulario.get("contraseña-registro-confirmacion")
+		contrasenaRegistro: datosFormulario.get("contrasena-registro"),
+		contrasenaRegistroConfirmacion: datosFormulario.get("contrasena-registro-confirmacion")
 	};
 
 	validarFormularioRegistro(datos);

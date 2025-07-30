@@ -4,8 +4,8 @@ export function mostrarErroresFormularioRegistro (errores) {
 	camposConError.forEach((campo) => {
 		const mensajeError = errores[campo];
 
-		if(campo === "coincidencia-contraseñas") {
-			const $camposContraseniasRegistro = document.querySelectorAll(".mensaje-error-coincidencia-contraseñas");
+		if(campo === "coincidencia-contrasenas") {
+			const $camposContraseniasRegistro = document.querySelectorAll(".mensaje-error-coincidencia-contrasenas");
 
 			$camposContraseniasRegistro.forEach((campoContrasenia) => {
 				campoContrasenia.textContent = mensajeError;

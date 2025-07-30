@@ -7,16 +7,16 @@ export function validarFormularioRegistro(datosFormulario) {
 		errores.email = "Email inválido";
 	}
 
-	if (!validarContraseña(datosFormulario.contraseñaRegistro)) {
-		errores.contraseña = "Contraseña inválida";
+	if (!validarContrasena(datosFormulario.contrasenaRegistro)) {
+		errores.contrasena = "Contraseña inválida";
 	}
 
-	if (!validarContraseña(datosFormulario.contraseñaRegistroConfirmacion)) {
-		errores["contraseña-confirmacion"] = "Contraseña inválida";
+	if (!validarContrasena(datosFormulario.contrasenaRegistroConfirmacion)) {
+		errores["contrasena-confirmacion"] = "Contraseña inválida";
 	}
 
-	if (datosFormulario.contraseñaRegistro !== datosFormulario.contraseñaRegistroConfirmacion) {
-		errores["coincidencia-contraseñas"] = "Las contraseñas no coinciden";
+	if (datosFormulario.contrasenaRegistro !== datosFormulario.contrasenaRegistroConfirmacion) {
+		errores["coincidencia-contrasenas"] = "Las contraseñas no coinciden";
 	}
 
 	if (Object.keys(errores).length > 0) {
@@ -34,9 +34,9 @@ function validarEmail(email) {
 	return regexEmail.test(email);
 }
 
-function validarContraseña(contraseña) {
-	const regexContraseña = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+[\]{};':"\\|,.<>/?-]{8,12}$/;
-	return regexContraseña.test(contraseña);
+function validarContrasena(contrasena) {
+	const regexContrasena = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+[\]{};':"\\|,.<>/?-]{8,12}$/;
+	return regexContrasena.test(contrasena);
 }
 
-function validarCoincidenciaContraseñasRegistro(contraseñas) {}
+function validarCoincidenciaContrasenasRegistro(contrasenas) {}
