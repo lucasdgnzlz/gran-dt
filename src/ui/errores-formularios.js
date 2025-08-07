@@ -1,11 +1,11 @@
 export function mostrarErroresFormularioRegistro(errores) {
 	const camposConError = Object.keys(errores);
 
-	mostrarMensajeError(camposConError, errores);
-	remarcarCampoError(camposConError);
+	mostrarMensajeErrorRegistro(camposConError, errores);
+	remarcarCampoErrorRegistro(camposConError);
 }
 
-function mostrarMensajeError(camposConError, errores) {
+function mostrarMensajeErrorRegistro(camposConError, errores) {
 	camposConError.forEach((campo) => {
 		const mensajeError = errores[campo];
 
@@ -24,7 +24,7 @@ function mostrarMensajeError(camposConError, errores) {
 	});
 }
 
-function remarcarCampoError(camposConError) {
+function remarcarCampoErrorRegistro(camposConError) {
 	camposConError.forEach((campo) => {
 		if (campo === "coincidencia-contrasenas") {
 			const $camposContraseñasRegistro = document.querySelectorAll(".registro-contrasenas");
@@ -42,7 +42,7 @@ function remarcarCampoError(camposConError) {
 /* ÉXITO CON LOS CAMPOS */
 
 export function ocultarErroresFormularioRegistro (camposConExito, lasContrasenasCoinciden) {
-	ocultarTextoError(camposConExito, lasContrasenasCoinciden);
+	ocultarTextoErrorRegistro(camposConExito, lasContrasenasCoinciden);
 	ocultarErrorCampoRegistro(camposConExito, lasContrasenasCoinciden);
 }
 
@@ -57,7 +57,7 @@ function ocultarErrorCampoRegistro (camposConExito, lasContrasenasCoinciden) {
 	});
 }
 
-function ocultarTextoError(camposConExito, lasContrasenasCoinciden) {
+function ocultarTextoErrorRegistro(camposConExito, lasContrasenasCoinciden) {
 	camposConExito.forEach((campoSinError) => {
 		if (campoSinError === "contrasena" && lasContrasenasCoinciden === false || campoSinError === "contrasena-confirmacion" && lasContrasenasCoinciden === false) {
 			return false;
