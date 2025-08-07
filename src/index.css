@@ -21,7 +21,7 @@ main {
   max-height: 300px;
 }
 .logo-gran-dt {
-  width: 12rem;
+  width: 10rem;
   max-width: 18rem;
   object-fit: contain;
   object-position: center;
@@ -35,10 +35,18 @@ main {
 .contenedor-enlace-recupero-contrasenia {
   padding: 0;
 }
+.contenedor-formulario-crear-cuenta,
+.contenedor-formulario-iniciar-sesion {
+  width: 75%;
+}
 .mensaje-error {
   font-size: 0.9;
   color: var(--color-validacion-error);
   opacity: 0;
+}
+
+.contenedor-ya-tengo-cuenta {
+  margin-top: 16px;
 }
 
 #oculto {
