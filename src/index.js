@@ -1,6 +1,6 @@
 /* Inicio página */
 
-import {validarFormularioRegistro} from "./validaciones/validaciones.js";
+import {validarFormularioInicioSesion, validarFormularioRegistro} from "./validaciones/validaciones.js";
 
 const $botonCrearCuenta = document.querySelector(".boton-crear-cuenta");
 const $botonYaTengoCuenta = document.querySelector(".boton-ya-tengo-cuenta");
@@ -46,4 +46,19 @@ $formularioRegistro.addEventListener("submit", (e) => {
 	};
 
 	validarFormularioRegistro(datos);
+});
+
+const $formularioInicioDeSesion = document.querySelector(".formulario-inicio-de-sesion");
+
+$formularioInicioDeSesion.addEventListener("submit", (e) => {
+	e.preventDefault();
+
+	const datosFormulario = new FormData($formularioInicioDeSesion);
+
+	const datos = {
+		email: datosFormulario.get("email"),
+		contrasenaInicioSesion: datosFormulario.get("contrasena-inicio-sesion"),
+	};
+
+	validarFormularioInicioSesion(datos);
 });
