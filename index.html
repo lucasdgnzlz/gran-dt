@@ -15,9 +15,7 @@
 
       <div class="d-grid gap-2 col-6 mx-auto">
         <button id="" class="btn btn-primary boton-crear-cuenta" type="button">Crear cuenta</button>
-        <button id="" class="btn btn-outline-secondary boton-ya-tengo-cuenta" type="button">
-          Ya tengo cuenta
-        </button>
+        <button id="" class="btn btn-outline-secondary boton-ya-tengo-cuenta" type="button">Ya tengo cuenta</button>
       </div>
 
       <div class="contenedor-formulario-crear-cuenta" id="oculto">
@@ -29,19 +27,27 @@
           </div>
           <div class="mb-3">
             <label for="contrasena-de-registro-uno" class="form-label">Contraseña</label>
-            <input type="password" class="form-control registro-contrasena contrasena-de-registro-uno" name="contrasena-registro" />
+            <input
+              type="password"
+              class="form-control registro-contrasena contrasena-de-registro-uno"
+              name="contrasena-registro"
+            />
             <p class="mensaje-error mensaje-error-contrasena mensaje-error-coincidencia-contrasenas">-</p>
           </div>
           <div class="mb-3">
             <label for="contrasena-de-registro-dos" class="form-label">Confirmar contraseña</label>
-            <input type="password" class="form-control registro-contrasena-confirmacion contrasena-de-registro-dos" name="contrasena-registro-confirmacion" />
+            <input
+              type="password"
+              class="form-control registro-contrasena-confirmacion contrasena-de-registro-dos"
+              name="contrasena-registro-confirmacion"
+            />
             <p class="mensaje-error mensaje-error-contrasena-confirmacion mensaje-error-coincidencia-contrasenas">-</p>
           </div>
           <button type="submit" class="btn btn-primary boton-registrarse">Registrarse</button>
         </form>
 
-        <div class="contenedor-ya-tengo-cuenta">
-          <a href="" class="ya-tengo-cuenta">¿Ya tenés cuenta? Iniciar sesión.</a>
+        <div class="contenedor-consulta-inicio-sesion">
+          <a href="" class="consulta-inicio-sesion">¿Ya tenés cuenta? Iniciar sesión.</a>
         </div>
       </div>
 
@@ -54,14 +60,18 @@
           </div>
           <div class="mb-3">
             <label for="contrasena-inicio-sesion" class="form-label">Contraseña</label>
-            <input type="password" class="form-control inicio-sesion-contrasena" name="contrasena-inicio-sesion"/>
+            <input type="password" class="form-control inicio-sesion-contrasena" name="contrasena-inicio-sesion" />
             <p class="mensaje-error mensaje-error-contrasena-inicio-sesion">-</p>
           </div>
           <div class="mb-3 form-check contenedor-enlace-recupero-contrasenia">
-            <a href="" class="form-check-label" for="exampleCheck1">¿Olvidaste tu contraseña?</a>
+            <a href="" class="form-check-label consulta-olvido-contrasena" for="exampleCheck1">¿Olvidaste tu contraseña?</a>
           </div>
-          <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+          <button type="submit" class="btn btn-primary boton-iniciar-sesion">Iniciar sesión</button>
         </form>
+
+        <div class="contenedor-consulta-registro">
+          <a href="" class="form-check-label consulta-registro" for="exampleCheck1">¿No sos usuario? ¡Registrate!</a>
+        </div>
       </div>
     </main>
 
