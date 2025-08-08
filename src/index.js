@@ -1,34 +1,20 @@
 /* Inicio página */
 
 import {validarFormularioInicioSesion, validarFormularioRegistro} from "./validaciones/validaciones.js";
+import {ocultarBotonesInicioPagina, mostrarFormularioCrearCuenta, mostrarFormularioInicioDeSesion} from "./ui/ui.js";
 
 const $botonCrearCuenta = document.querySelector(".boton-crear-cuenta");
 const $botonYaTengoCuenta = document.querySelector(".boton-ya-tengo-cuenta");
 
 $botonCrearCuenta.addEventListener("click", () => {
-	ocultarBotonesInicioPagina();
+	ocultarBotonesInicioPagina($botonCrearCuenta, $botonYaTengoCuenta);
 	mostrarFormularioCrearCuenta();
 });
 
 $botonYaTengoCuenta.addEventListener("click", () => {
-	ocultarBotonesInicioPagina();
+	ocultarBotonesInicioPagina($botonCrearCuenta, $botonYaTengoCuenta);
 	mostrarFormularioInicioDeSesion();
 });
-
-function ocultarBotonesInicioPagina() {
-	$botonCrearCuenta.id = "oculto";
-	$botonYaTengoCuenta.id = "oculto";
-}
-
-function mostrarFormularioCrearCuenta() {
-	const $contenedorFormularioCrearCuenta = document.querySelector(".contenedor-formulario-crear-cuenta");
-	$contenedorFormularioCrearCuenta.id = "";
-}
-
-function mostrarFormularioInicioDeSesion() {
-	const $contenedorFormularioInicioDeSesion = document.querySelector(".contenedor-formulario-inicio-de-sesion");
-	$contenedorFormularioInicioDeSesion.id = "";
-}
 
 /* Registro */
 
