@@ -35,18 +35,25 @@ main {
 .contenedor-enlace-recupero-contrasenia {
   padding: 0;
 }
-.contenedor-formulario-crear-cuenta,
-.contenedor-formulario-iniciar-sesion {
-  width: 75%;
-}
 .mensaje-error {
   font-size: 0.9;
   color: var(--color-validacion-error);
   opacity: 0;
 }
+.boton-registrarse,
+.boton-iniciar-sesion {
+  width: 100%;
+}
 
-.contenedor-ya-tengo-cuenta {
+.contenedor-consulta-inicio-sesion,
+.contenedor-consulta-registro {
   margin-top: 16px;
+}
+
+.consulta-registro,
+.consulta-inicio-sesion,
+.consulta-olvido-contrasena {
+  text-decoration: none;
 }
 
 #oculto {
