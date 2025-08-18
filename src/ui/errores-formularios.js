@@ -26,25 +26,26 @@ function mostrarMensajeErrorRegistro(camposConError, errores) {
 	});
 }
 
+function remarcarCampoErrorRegistro(camposConError) {
+	camposConError.forEach((campo) => {
+		if (campo === "coincidencia-contrasenas") {
+			const $camposContraseñasRegistro = document.querySelectorAll(".registro-contrasenas");
+
+			$camposContraseñasRegistro.forEach((campoContraseñaConError) => {
+				campoContraseñaConError.className += " is-invalid";
+			});
+		} else {
+			const $camposRegistro = document.querySelector(`.registro-${campo}`);
+			$camposRegistro.className += " is-invalid";
+		}
+	});
+}
+
 // ÉXITO CON LOS CAMPOS REGISTRO
 
 export function ocultarErroresFormularioRegistro(camposConExito, lasContrasenasCoinciden) {
 	ocultarTextoErrorRegistro(camposConExito, lasContrasenasCoinciden);
 	ocultarErrorCampoRegistro(camposConExito, lasContrasenasCoinciden);
-}
-
-function ocultarErrorCampoRegistro(camposConExito, lasContrasenasCoinciden) {
-	camposConExito.forEach((campoSinError) => {
-		if (
-			(campoSinError === "contrasena" && lasContrasenasCoinciden === false) ||
-      (campoSinError === "contrasena-confirmacion" && lasContrasenasCoinciden === false)
-		) {
-			return false;
-		}
-
-		const $campoSinError = document.querySelector(`.registro-${campoSinError}`);
-		$campoSinError.classList.remove("is-invalid");
-	});
 }
 
 function ocultarTextoErrorRegistro(camposConExito, lasContrasenasCoinciden) {
@@ -62,28 +63,27 @@ function ocultarTextoErrorRegistro(camposConExito, lasContrasenasCoinciden) {
 	});
 }
 
-function remarcarCampoErrorRegistro(camposConError) {
-	camposConError.forEach((campo) => {
-		if (campo === "coincidencia-contrasenas") {
-			const $camposContraseñasRegistro = document.querySelectorAll(".registro-contrasenas");
-
-			$camposContraseñasRegistro.forEach((campoContraseñaConError) => {
-				campoContraseñaConError.className += " is-invalid";
-			});
-		} else {
-			const $camposRegistro = document.querySelector(`.registro-${campo}`);
-			$camposRegistro.className += " is-invalid";
+function ocultarErrorCampoRegistro(camposConExito, lasContrasenasCoinciden) {
+	camposConExito.forEach((campoSinError) => {
+		if (
+			(campoSinError === "contrasena" && lasContrasenasCoinciden === false) ||
+      (campoSinError === "contrasena-confirmacion" && lasContrasenasCoinciden === false)
+		) {
+			return false;
 		}
+
+		const $campoSinError = document.querySelector(`.registro-${campoSinError}`);
+		$campoSinError.classList.remove("is-invalid");
 	});
 }
 
-// FORMULARIO INICIO DE SESIÓN
+// ERRORES FORMULARIO INICIO DE SESIÓN
 
 export function mostrarErroresFormularioInicioSesion(errores) {
 	const camposConError = Object.keys(errores);
 
 	mostrarMensajeErrorInicioSesion(camposConError, errores);
-	// remarcarCampoErrorInicioSesion(camposConError); Ver después
+	remarcarCampoErrorInicioSesion(camposConError);
 }
 
 function mostrarMensajeErrorInicioSesion(camposConError, errores) {
@@ -93,5 +93,34 @@ function mostrarMensajeErrorInicioSesion(camposConError, errores) {
 		const $mensajeCampoConError = document.querySelector(`.mensaje-error-${campo}-inicio-sesion`);
 		$mensajeCampoConError.textContent = mensajeError;
 		$mensajeCampoConError.style.opacity = 1;
+	});
+}
+
+function remarcarCampoErrorInicioSesion(camposConError) {
+	camposConError.forEach((campo) => {
+		const $camposRegistro = document.querySelector(`.inicio-sesion-${campo}`);
+		$camposRegistro.className += " is-invalid";
+	});
+}
+
+// ÉXITO CON LOS CAMPOS DE INICIO DE SESIÓN
+
+export function ocultarErroresFormularioInicioSesion(camposConExito) {
+	ocultarTextoErrorInicioSesion(camposConExito);
+	ocultarErrorCampoInicioSesion(camposConExito);
+}
+
+function ocultarErrorCampoInicioSesion(camposConExito) {
+	camposConExito.forEach((campoSinError) => {
+		const $campoSinError = document.querySelector(`.inicio-sesion-${campoSinError}`);
+		$campoSinError.classList.remove("is-invalid");
+	});
+}
+
+function ocultarTextoErrorInicioSesion(camposConExito) {
+	camposConExito.forEach((campoSinError) => {
+		const $mensajeError = document.querySelector(`.mensaje-error-${campoSinError}-inicio-sesion`);
+		$mensajeError.textContent = "-";
+		$mensajeError.style.opacity = 0;
 	});
 }
