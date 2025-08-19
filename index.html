@@ -21,14 +21,15 @@
       <div class="contenedor-formulario-crear-cuenta" id="oculto">
         <form class="formulario-registro">
           <div class="mb-3">
-            <label for="email-de-registro" class="form-label">Email</label>
-            <input type="email" class="form-control registro-email" name="email"/>
+            <label for="email-registro" class="form-label">Email</label>
+            <input id="email-registro" type="email" class="form-control registro-email" name="email"/>
             <p class="mensaje-error mensaje-error-email">-</p>
           </div>
           <div class="mb-3">
             <label for="contrasena-de-registro-uno" class="form-label">Contraseña</label>
             <input
               type="password"
+              id="contrasena-de-registro-uno"
               class="form-control registro-contrasena contrasena-de-registro-uno"
               name="contrasena-registro"
             />
@@ -38,6 +39,7 @@
             <label for="contrasena-de-registro-dos" class="form-label">Confirmar contraseña</label>
             <input
               type="password"
+              id="contrasena-de-registro-dos"
               class="form-control registro-contrasena-confirmacion contrasena-de-registro-dos"
               name="contrasena-registro-confirmacion"
             />
@@ -55,12 +57,12 @@
         <form class="formulario-inicio-de-sesion">
           <div class="mb-3">
             <label for="email-inicio-sesion" class="form-label">Email</label>
-            <input type="email" class="form-control inicio-sesion-email" name="email"/>
+            <input type="email" id="email-inicio-sesion" class="form-control inicio-sesion-email" name="email"/>
             <p class="mensaje-error mensaje-error-email-inicio-sesion">-</p>
           </div>
           <div class="mb-3">
             <label for="contrasena-inicio-sesion" class="form-label">Contraseña</label>
-            <input type="password" class="form-control inicio-sesion-contrasena" name="contrasena-inicio-sesion" />
+            <input type="password" id="contrasena-inicio-sesion" class="form-control inicio-sesion-contrasena" name="contrasena-inicio-sesion" />
             <p class="mensaje-error mensaje-error-contrasena-inicio-sesion">-</p>
           </div>
           <div id="oculto" class="mb-3 form-check contenedor-enlace-recupero-contrasenia">
