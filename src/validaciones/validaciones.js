@@ -2,6 +2,7 @@ import {
 	mostrarErroresFormularioRegistro,
 	ocultarErroresFormularioRegistro,
 	mostrarErroresFormularioInicioSesion,
+	ocultarErroresFormularioInicioSesion
 } from "../ui/errores-formularios.js";
 
 // VALIDACIÓN REGISTRO
@@ -59,15 +60,19 @@ export function validarFormularioInicioSesion(datosFormulario) {
 
 	if (datosFormulario.email !== datosAccesoPrueba.email) {
 		erroresFormulario.email = "Email inválido";
+	} else {
+		camposConExito.push("email");
 	}
 
 	if (datosFormulario.contrasenaInicioSesion !== datosAccesoPrueba.contrasenaInicioSesion) {
 		erroresFormulario.contrasena = "Contraseña inválida";
+	} else{
+		camposConExito.push("contrasena");
 	}
 
 	if (Object.keys(erroresFormulario).length > 0) {
 		mostrarErroresFormularioInicioSesion(erroresFormulario);
-		// ocultarErroresFormularioInicioSesion(camposConExito); // Crear
+		ocultarErroresFormularioInicioSesion(camposConExito);
 	}
 }
 
