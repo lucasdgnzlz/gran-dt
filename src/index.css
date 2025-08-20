@@ -27,11 +27,6 @@ main {
   object-position: center;
 }
 
-.contenedor-botones-inicio {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .contenedor-enlace-recupero-contrasenia {
   padding: 0;
 }
@@ -39,10 +34,6 @@ main {
   font-size: 0.9;
   color: var(--color-validacion-error);
   opacity: 0;
-}
-.boton-registrarse,
-.boton-iniciar-sesion {
-  width: 100%;
 }
 
 .contenedor-consulta-inicio-sesion,
@@ -58,4 +49,39 @@ main {
 
 #oculto {
   display: none;
+}
+
+/* Laptops y desktops chicos */
+@media (min-width: 1024px) {
+  .contenedor-inicio-sesion {
+    display: flex;
+    justify-content: start;
+    padding: 100px 0;
+  }
+  .contenedor-logo {
+    max-width: 350px;
+    max-height: 350px;
+  }
+  .logo-gran-dt {
+    width: 18rem;
+    max-width: 25rem;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .contenedor-botones-inicio {
+    width: 250px;
+    margin: 25px 0;
+  }
+
+  .boton-crear-cuenta,
+  .boton-ya-tengo-cuenta {
+    width: 100%;
+    height: 50px;
+  }
+
+  .contenedor-formulario-crear-cuenta,
+  .contenedor-formulario-inicio-de-sesion {
+    width: 300px;
+  }
 }
