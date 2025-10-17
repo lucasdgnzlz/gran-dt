@@ -22,3 +22,8 @@ export function ocultarFormularioDeinicioDeSesion() {
 	const $contenedorFormularioInicioDeSesion = document.querySelector(".contenedor-formulario-inicio-de-sesion");
 	$contenedorFormularioInicioDeSesion.id = "oculto";
 }
+
+export function mostrarMensajeBienvenida() {
+	const $mensajeDeBienvenida = document.querySelector(".mensaje-de-bienvenida");
+	$mensajeDeBienvenida.id = "";
+}
