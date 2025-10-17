@@ -1,20 +1,31 @@
 /* Inicio página */
 
 import { validarFormularioInicioSesion, validarFormularioRegistro } from "./validaciones/validaciones.js";
-import { ocultarBotonesInicioPagina, mostrarFormularioCrearCuenta, ocultarFormularioDeCrearCuenta, mostrarFormularioInicioDeSesion, ocultarFormularioDeinicioDeSesion } from "./ui/ui.js";
-import { ocultarErroresFormularioRegistro, ocultarErroresFormularioInicioSesion } from "./ui/errores-formularios.js";
+import {
+  ocultarBotonesInicioPagina,
+  mostrarFormularioCrearCuenta,
+  ocultarFormularioDeCrearCuenta,
+  mostrarFormularioInicioDeSesion,
+  ocultarFormularioDeinicioDeSesion,
+	mostrarMensajeBienvenida
+} from "./ui/ui.js";
+import {
+  ocultarErroresFormularioRegistro,
+  ocultarErroresFormularioInicioSesion,
+  mostrarErroresFormularioInicioSesion,
+} from "./ui/errores-formularios.js";
 
 const $botonCrearCuenta = document.querySelector(".boton-crear-cuenta");
 const $botonYaTengoCuenta = document.querySelector(".boton-ya-tengo-cuenta");
 
 $botonCrearCuenta.addEventListener("click", () => {
-	ocultarBotonesInicioPagina($botonCrearCuenta, $botonYaTengoCuenta);
-	mostrarFormularioCrearCuenta();
+  ocultarBotonesInicioPagina($botonCrearCuenta, $botonYaTengoCuenta);
+  mostrarFormularioCrearCuenta();
 });
 
 $botonYaTengoCuenta.addEventListener("click", () => {
-	ocultarBotonesInicioPagina($botonCrearCuenta, $botonYaTengoCuenta);
-	mostrarFormularioInicioDeSesion();
+  ocultarBotonesInicioPagina($botonCrearCuenta, $botonYaTengoCuenta);
+  mostrarFormularioInicioDeSesion();
 });
 
 /* Registro */
@@ -22,17 +33,17 @@ $botonYaTengoCuenta.addEventListener("click", () => {
 const $formularioRegistro = document.querySelector(".formulario-registro");
 
 $formularioRegistro.addEventListener("submit", (e) => {
-	e.preventDefault();
+  e.preventDefault();
 
-	const datosFormulario = new FormData($formularioRegistro);
+  const datosFormulario = new FormData($formularioRegistro);
 
-	const datos = {
-		email: datosFormulario.get("email"),
-		contrasenaRegistro: datosFormulario.get("contrasena-registro"),
-		contrasenaRegistroConfirmacion: datosFormulario.get("contrasena-registro-confirmacion"),
-	};
+  const datos = {
+    email: datosFormulario.get("email"),
+    contrasenaRegistro: datosFormulario.get("contrasena-registro"),
+    contrasenaRegistroConfirmacion: datosFormulario.get("contrasena-registro-confirmacion"),
+  };
 
-	validarFormularioRegistro(datos);
+  validarFormularioRegistro(datos);
 });
 
 /* Inicio de sesión */
@@ -40,16 +51,23 @@ $formularioRegistro.addEventListener("submit", (e) => {
 const $formularioInicioDeSesion = document.querySelector(".formulario-inicio-de-sesion");
 
 $formularioInicioDeSesion.addEventListener("submit", (e) => {
-	e.preventDefault();
+  e.preventDefault();
 
-	const datosFormulario = new FormData($formularioInicioDeSesion);
+  const datosFormulario = new FormData($formularioInicioDeSesion);
 
-	const datos = {
-		email: datosFormulario.get("email"),
-		contrasenaInicioSesion: datosFormulario.get("contrasena-inicio-sesion")
-	};
+  const datos = {
+    email: datosFormulario.get("email"),
+    contrasenaInicioSesion: datosFormulario.get("contrasena-inicio-sesion"),
+  };
 
-	validarFormularioInicioSesion(datos);
+  const errores = validarFormularioInicioSesion(datos);
+
+  if (Object.keys(errores).length > 0) {
+    mostrarErroresFormularioInicioSesion(errores);
+  } else {
+    ocultarFormularioDeinicioDeSesion();
+		mostrarMensajeBienvenida();
+  }
 });
 
 /* Consultas de los formularios */ // Entiéndase como "¿ya sos usuario? iniciá sesión, etc"
@@ -57,21 +75,21 @@ $formularioInicioDeSesion.addEventListener("submit", (e) => {
 const $consultaInicioSesion = document.querySelector(".consulta-inicio-sesion");
 
 $consultaInicioSesion.addEventListener("click", (e) => {
-	e.preventDefault();
+  e.preventDefault();
 
-	ocultarBotonesInicioPagina($botonCrearCuenta, $botonYaTengoCuenta);
-	mostrarFormularioInicioDeSesion();
-	ocultarFormularioDeCrearCuenta();
-	ocultarErroresFormularioInicioSesion(["email", "contrasena"]);
+  ocultarBotonesInicioPagina($botonCrearCuenta, $botonYaTengoCuenta);
+  mostrarFormularioInicioDeSesion();
+  ocultarFormularioDeCrearCuenta();
+  ocultarErroresFormularioInicioSesion(["email", "contrasena"]);
 });
 
 const $consultaRegistro = document.querySelector(".consulta-registro");
 
 $consultaRegistro.addEventListener("click", (e) => {
-	e.preventDefault();
+  e.preventDefault();
 
-	ocultarBotonesInicioPagina($botonCrearCuenta, $botonYaTengoCuenta);
-	mostrarFormularioCrearCuenta();
-	ocultarFormularioDeinicioDeSesion();
-	ocultarErroresFormularioRegistro(["email", "contrasena", "contrasena-confirmacion"]);
+  ocultarBotonesInicioPagina($botonCrearCuenta, $botonYaTengoCuenta);
+  mostrarFormularioCrearCuenta();
+  ocultarFormularioDeinicioDeSesion();
+  ocultarErroresFormularioRegistro(["email", "contrasena", "contrasena-confirmacion"]);
 });
