@@ -1,7 +1,6 @@
 import {
 	mostrarErroresFormularioRegistro,
 	ocultarErroresFormularioRegistro,
-	ocultarErroresFormularioInicioSesion
 } from "../ui/errores-formularios.js";
 
 // VALIDACIÓN REGISTRO

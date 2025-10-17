@@ -105,20 +105,22 @@ function remarcarCampoErrorInicioSesion(camposConError) {
 
 // ÉXITO CON LOS CAMPOS DE INICIO DE SESIÓN
 
-export function ocultarErroresFormularioInicioSesion(camposConExito) {
-	ocultarTextoErrorInicioSesion(camposConExito);
-	ocultarErrorCampoInicioSesion(camposConExito);
+export function limpiarErroresFormularioInicioSesion() {
+	const camposFormularioInicioSesion = ["email", "contrasena"];
+
+	ocultarTextoErrorInicioSesion(camposFormularioInicioSesion);
+	ocultarErrorCampoInicioSesion(camposFormularioInicioSesion);
 }
 
-function ocultarErrorCampoInicioSesion(camposConExito) {
-	camposConExito.forEach((campoSinError) => {
+function ocultarErrorCampoInicioSesion(camposFormularioInicioSesion) {
+	camposFormularioInicioSesion.forEach((campoSinError) => {
 		const $campoSinError = document.querySelector(`.inicio-sesion-${campoSinError}`);
 		$campoSinError.classList.remove("is-invalid");
 	});
 }
 
-function ocultarTextoErrorInicioSesion(camposConExito) {
-	camposConExito.forEach((campoSinError) => {
+function ocultarTextoErrorInicioSesion(camposFormularioInicioSesion) {
+	camposFormularioInicioSesion.forEach((campoSinError) => {
 		const $mensajeError = document.querySelector(`.mensaje-error-${campoSinError}-inicio-sesion`);
 		$mensajeError.textContent = "-";
 		$mensajeError.style.opacity = 0;

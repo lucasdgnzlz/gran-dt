@@ -11,7 +11,7 @@ import {
 } from "./ui/ui.js";
 import {
   ocultarErroresFormularioRegistro,
-  ocultarErroresFormularioInicioSesion,
+  limpiarErroresFormularioInicioSesion,
   mostrarErroresFormularioInicioSesion,
 } from "./ui/errores-formularios.js";
 
@@ -63,8 +63,10 @@ $formularioInicioDeSesion.addEventListener("submit", (e) => {
   const errores = validarFormularioInicioSesion(datos);
 
   if (Object.keys(errores).length > 0) {
+		limpiarErroresFormularioInicioSesion();
     mostrarErroresFormularioInicioSesion(errores);
   } else {
+		limpiarErroresFormularioInicioSesion();
     ocultarFormularioDeinicioDeSesion();
 		mostrarMensajeBienvenida();
   }
@@ -80,7 +82,7 @@ $consultaInicioSesion.addEventListener("click", (e) => {
   ocultarBotonesInicioPagina($botonCrearCuenta, $botonYaTengoCuenta);
   mostrarFormularioInicioDeSesion();
   ocultarFormularioDeCrearCuenta();
-  ocultarErroresFormularioInicioSesion(["email", "contrasena"]);
+  limpiarErroresFormularioInicioSesion();
 });
 
 const $consultaRegistro = document.querySelector(".consulta-registro");
