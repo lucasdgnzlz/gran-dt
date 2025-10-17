@@ -47,6 +47,14 @@ main {
   text-decoration: none;
 }
 
+/* Mensaje de bienvenida - Simulación de inicio de sesión exitoso */
+
+.mensaje-de-bienvenida {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
 #oculto {
   display: none;
 }
