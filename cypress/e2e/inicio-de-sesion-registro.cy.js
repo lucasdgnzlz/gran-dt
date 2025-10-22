@@ -9,7 +9,7 @@ context("Inicio de sesión", () => {
   };
 
   it("Inicio correcto de sesión", () => {
-    cy.get(".boton-ya-tengo-cuenta").should("be.visible").should("have.text", "Ya tengo cuenta").click();
+    cy.get(".boton-ya-tengo-cuenta").should("be.visible").and("have.text", "Ya tengo cuenta").click();
 
     cy.get(".formulario-inicio-de-sesion").should("be.visible");
 
