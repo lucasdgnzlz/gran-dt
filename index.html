@@ -23,7 +23,7 @@
           <div class="mb-3">
             <label for="email-registro" class="form-label">Email</label>
             <input id="email-registro" type="email" class="form-control registro-email" name="email"/>
-            <p class="mensaje-error mensaje-error-email">-</p>
+            <p class="mensaje-error mensaje-error-email-registro">-</p>
           </div>
           <div class="mb-3">
             <label for="contrasena-de-registro-uno" class="form-label">Contraseña</label>
@@ -33,7 +33,7 @@
               class="form-control registro-contrasena contrasena-de-registro-uno"
               name="contrasena-registro"
             />
-            <p class="mensaje-error mensaje-error-contrasena mensaje-error-coincidencia-contrasenas">-</p>
+            <p class="mensaje-error mensaje-error-contrasena-registro mensaje-error-coincidencia-contrasenas">-</p>
           </div>
           <div class="mb-3">
             <label for="contrasena-de-registro-dos" class="form-label">Confirmar contraseña</label>
@@ -43,7 +43,7 @@
               class="form-control registro-contrasena-confirmacion contrasena-de-registro-dos"
               name="contrasena-registro-confirmacion"
             />
-            <p class="mensaje-error mensaje-error-contrasena-confirmacion mensaje-error-coincidencia-contrasenas">-</p>
+            <p class="mensaje-error mensaje-error-contrasena-confirmacion-registro mensaje-error-coincidencia-contrasenas">-</p>
           </div>
           <button type="submit" class="btn btn-primary boton-registrarse">Registrarse</button>
         </form>
@@ -79,6 +79,11 @@
       <div id="oculto" class="mensaje-de-bienvenida">
         <h1>¡Bienvenido!</h1>
         <p>Iniciaste sesión exitosamente, pero de momento el proyecto sigue en construcción.</p>
+      </div>
+
+      <div id="oculto" class="mensaje-de-registro-completado">
+        <h1>¡Te registraste con éxito!</h1>
+        <p>Te registraste correctamente, pero por el momento el proyecto se encuentra en construcción.</p>
       </div>
     </main>
 
