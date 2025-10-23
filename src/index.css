@@ -49,7 +49,8 @@ main {
 
 /* Mensaje de bienvenida - Simulación de inicio de sesión exitoso */
 
-.mensaje-de-bienvenida {
+.mensaje-de-bienvenida,
+.mensaje-de-registro-completado {
   display: flex;
   flex-direction: column;
   text-align: center;
