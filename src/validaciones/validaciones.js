@@ -1,10 +1,29 @@
-import {
-	mostrarErroresFormularioRegistro,
-	ocultarErroresFormularioRegistro,
-} from "../ui/errores-formularios.js";
-
 // VALIDACIÓN REGISTRO
 
+export function validarFormularioRegistro(datosFormulario) {
+  const erroresFormulario = {};
+
+  if (!validarEmail(datosFormulario.email)) {
+    erroresFormulario.email = "Email inválido";
+  }
+
+  if (!validarContrasena(datosFormulario.contrasenaRegistro)) {
+    erroresFormulario.contrasena = "Contraseña inválida";
+  }
+
+  if (!validarContrasena(datosFormulario.contrasenaRegistroConfirmacion)) {
+    erroresFormulario["contrasena-confirmacion"] = "Contraseña inválida";
+  }
+
+  if (datosFormulario.contrasenaRegistro !== datosFormulario.contrasenaRegistroConfirmacion) {
+    erroresFormulario["coincidencia-contrasenas"] = "Las contraseñas no coinciden";
+    lasContrasenasCoinciden = false;
+  }
+
+	return erroresFormulario;
+}
+
+/*
 export function validarFormularioRegistro(datosFormulario) {
 	const errores = {};
 	const camposConExito = [];
@@ -44,36 +63,37 @@ export function validarFormularioRegistro(datosFormulario) {
 		// Esta data se enviaría a una db
 	}
 }
+*/
 
 // VALIDACIÓN INICIO DE SESIÓN
 
 export function validarFormularioInicioSesion(datosFormulario) {
-	const datosAccesoPrueba = {
-		email: "ejemploemail@gmail.com",
-		contrasenaInicioSesion: "ejemplocontrasena1234",
-	};
+  const datosAccesoPrueba = {
+    email: "ejemploemail@gmail.com",
+    contrasenaInicioSesion: "ejemplocontrasena1234",
+  };
 
-	let erroresFormulario = {};
+  let erroresFormulario = {};
 
-	if (datosFormulario.email !== datosAccesoPrueba.email) {
-		erroresFormulario.email = "Email inválido";
-	}
+  if (datosFormulario.email !== datosAccesoPrueba.email) {
+    erroresFormulario.email = "Email inválido";
+  }
 
-	if (datosFormulario.contrasenaInicioSesion !== datosAccesoPrueba.contrasenaInicioSesion) {
-		erroresFormulario.contrasena = "Contraseña inválida";
-	}
+  if (datosFormulario.contrasenaInicioSesion !== datosAccesoPrueba.contrasenaInicioSesion) {
+    erroresFormulario.contrasena = "Contraseña inválida";
+  }
 
-	return erroresFormulario;
+  return erroresFormulario;
 }
 
 // Validaciones generales
 
 function validarEmail(email) {
-	const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-	return regexEmail.test(email);
+  const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return regexEmail.test(email);
 }
 
 function validarContrasena(contrasena) {
-	const regexContrasena = /^(?=.*\d).{8,}$/;
-	return regexContrasena.test(contrasena);
+  const regexContrasena = /^(?=.*\d).{8,}$/;
+  return regexContrasena.test(contrasena);
 }

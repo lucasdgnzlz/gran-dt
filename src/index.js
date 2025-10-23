@@ -7,12 +7,14 @@ import {
   ocultarFormularioDeCrearCuenta,
   mostrarFormularioInicioDeSesion,
   ocultarFormularioDeinicioDeSesion,
-	mostrarMensajeBienvenida
+  mostrarMensajeBienvenida,
+  mostrarMensajeRegistroExitoso
 } from "./ui/ui.js";
 import {
-  ocultarErroresFormularioRegistro,
+  limpiarErroresFormularioRegistro,
+  mostrarErroresFormularioRegistro,
   limpiarErroresFormularioInicioSesion,
-  mostrarErroresFormularioInicioSesion,
+  mostrarErroresFormularioInicioSesion
 } from "./ui/errores-formularios.js";
 
 const $botonCrearCuenta = document.querySelector(".boton-crear-cuenta");
@@ -43,7 +45,16 @@ $formularioRegistro.addEventListener("submit", (e) => {
     contrasenaRegistroConfirmacion: datosFormulario.get("contrasena-registro-confirmacion"),
   };
 
-  validarFormularioRegistro(datos);
+  const errores = validarFormularioRegistro(datos);
+
+  if (Object.keys(errores).length > 0) {
+    limpiarErroresFormularioRegistro();
+    mostrarErroresFormularioRegistro(errores);
+  } else {
+    limpiarErroresFormularioRegistro(),
+    ocultarFormularioDeCrearCuenta();
+    mostrarMensajeRegistroExitoso();
+  }
 });
 
 /* Inicio de sesión */
@@ -63,12 +74,12 @@ $formularioInicioDeSesion.addEventListener("submit", (e) => {
   const errores = validarFormularioInicioSesion(datos);
 
   if (Object.keys(errores).length > 0) {
-		limpiarErroresFormularioInicioSesion();
+    limpiarErroresFormularioInicioSesion();
     mostrarErroresFormularioInicioSesion(errores);
   } else {
-		limpiarErroresFormularioInicioSesion();
+    limpiarErroresFormularioInicioSesion();
     ocultarFormularioDeinicioDeSesion();
-		mostrarMensajeBienvenida();
+    mostrarMensajeBienvenida();
   }
 });
 
@@ -93,5 +104,5 @@ $consultaRegistro.addEventListener("click", (e) => {
   ocultarBotonesInicioPagina($botonCrearCuenta, $botonYaTengoCuenta);
   mostrarFormularioCrearCuenta();
   ocultarFormularioDeinicioDeSesion();
-  ocultarErroresFormularioRegistro(["email", "contrasena", "contrasena-confirmacion"]);
+  limpiarErroresFormularioRegistro();
 });

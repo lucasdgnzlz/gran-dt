@@ -27,3 +27,8 @@ export function mostrarMensajeBienvenida() {
 	const $mensajeDeBienvenida = document.querySelector(".mensaje-de-bienvenida");
 	$mensajeDeBienvenida.id = "";
 }
+
+export function mostrarMensajeRegistroExitoso() {
+	const $mensajeRegistroExitoso = document.querySelector(".mensaje-de-registro-completado");
+	$mensajeRegistroExitoso.id = "";
+}

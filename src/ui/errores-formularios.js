@@ -1,54 +1,62 @@
 // ERRORES FORMULARIO REGISTRO
 
 export function mostrarErroresFormularioRegistro(errores) {
-	const camposConError = Object.keys(errores);
+  const camposConError = Object.keys(errores);
 
-	mostrarMensajeErrorRegistro(camposConError, errores);
-	remarcarCampoErrorRegistro(camposConError);
+  mostrarMensajeErrorRegistro(camposConError, errores);
+  remarcarCampoErrorRegistro(camposConError);
 }
 
 function mostrarMensajeErrorRegistro(camposConError, errores) {
-	camposConError.forEach((campo) => {
-		const mensajeError = errores[campo];
+  camposConError.forEach((campo) => {
+    const mensajeError = errores[campo];
 
-		if (campo === "coincidencia-contrasenas") {
-			const $mensajesErroresContrasenas = document.querySelectorAll(".mensaje-error-coincidencia-contrasenas");
+    if (campo === "coincidencia-contrasenas") {
+      const $mensajesErroresContrasenas = document.querySelectorAll(".mensaje-error-coincidencia-contrasenas");
 
-			$mensajesErroresContrasenas.forEach((mensajeErrorContrasena) => {
-				mensajeErrorContrasena.textContent = mensajeError;
-				mensajeErrorContrasena.style.opacity = 1;
-			});
-		} else {
-			const $mensajeCampoConError = document.querySelector(`.mensaje-error-${campo}`);
-			$mensajeCampoConError.textContent = mensajeError;
-			$mensajeCampoConError.style.opacity = 1;
-		}
-	});
+      $mensajesErroresContrasenas.forEach((mensajeErrorContrasena) => {
+        mensajeErrorContrasena.textContent = mensajeError;
+        mensajeErrorContrasena.style.opacity = 1;
+      });
+    } else {
+      const $mensajeCampoConError = document.querySelector(`.mensaje-error-${campo}-registro`);
+      $mensajeCampoConError.textContent = mensajeError;
+      $mensajeCampoConError.style.opacity = 1;
+    }
+  });
 }
 
 function remarcarCampoErrorRegistro(camposConError) {
-	camposConError.forEach((campo) => {
-		if (campo === "coincidencia-contrasenas") {
-			const $camposContraseñasRegistro = document.querySelectorAll(".registro-contrasenas");
+  camposConError.forEach((campo) => {
+    if (campo === "coincidencia-contrasenas") {
+      const $camposContraseñasRegistro = document.querySelectorAll(".registro-contrasenas");
 
-			$camposContraseñasRegistro.forEach((campoContraseñaConError) => {
-				campoContraseñaConError.className += " is-invalid";
-			});
-		} else {
-			const $camposRegistro = document.querySelector(`.registro-${campo}`);
-			$camposRegistro.className += " is-invalid";
-		}
-	});
+      $camposContraseñasRegistro.forEach((campoContraseñaConError) => {
+        campoContraseñaConError.className += " is-invalid";
+      });
+    } else {
+      const $camposRegistro = document.querySelector(`.registro-${campo}`);
+      $camposRegistro.className += " is-invalid";
+    }
+  });
 }
 
 // ÉXITO CON LOS CAMPOS REGISTRO
 
-export function ocultarErroresFormularioRegistro(camposConExito, lasContrasenasCoinciden) {
-	ocultarTextoErrorRegistro(camposConExito, lasContrasenasCoinciden);
-	ocultarErrorCampoRegistro(camposConExito, lasContrasenasCoinciden);
+export function limpiarErroresFormularioRegistro() {
+  const camposFormularioRegistro = ["email", "contrasena", "contrasena-confirmacion"];
+
+  ocultarTextoErrorRegistro(camposFormularioRegistro);
+  ocultarErrorCampoRegistro(camposFormularioRegistro);
 }
 
-function ocultarTextoErrorRegistro(camposConExito, lasContrasenasCoinciden) {
+function ocultarTextoErrorRegistro(camposConErrores) {
+  camposConErrores.forEach((campoConError) => {
+    const $campoConError = document.querySelector(`.mensaje-error-${campoConError}-registro`);
+    $campoConError.textContent = "-";
+    $campoConError.style.opacity = 0;
+  });
+  /*
 	camposConExito.forEach((campoSinError) => {
 		if (
 			(campoSinError === "contrasena" && lasContrasenasCoinciden === false) ||
@@ -61,68 +69,75 @@ function ocultarTextoErrorRegistro(camposConExito, lasContrasenasCoinciden) {
 		$mensajeError.textContent = "-";
 		$mensajeError.style.opacity = 0;
 	});
+	*/
 }
 
-function ocultarErrorCampoRegistro(camposConExito, lasContrasenasCoinciden) {
-	camposConExito.forEach((campoSinError) => {
-		if (
-			(campoSinError === "contrasena" && lasContrasenasCoinciden === false) ||
+function ocultarErrorCampoRegistro(camposConErrores) {
+	  camposConErrores.forEach((campoConError) => {
+    const $campoConError = document.querySelector(`.registro-${campoConError}`);
+    $campoConError.classList.remove("is-invalid");
+  });
+	/*
+  camposConExito.forEach((campoSinError) => {
+    if (
+      (campoSinError === "contrasena" && lasContrasenasCoinciden === false) ||
       (campoSinError === "contrasena-confirmacion" && lasContrasenasCoinciden === false)
-		) {
-			return false;
-		}
+    ) {
+      return false;
+    }
 
-		const $campoSinError = document.querySelector(`.registro-${campoSinError}`);
-		$campoSinError.classList.remove("is-invalid");
-	});
+    const $campoSinError = document.querySelector(`.registro-${campoSinError}`);
+    $campoSinError.classList.remove("is-invalid");
+  });
+	*/
 }
 
 // ERRORES FORMULARIO INICIO DE SESIÓN
 
 export function mostrarErroresFormularioInicioSesion(errores) {
-	const camposConError = Object.keys(errores);
+  const camposConError = Object.keys(errores);
 
-	mostrarMensajeErrorInicioSesion(camposConError, errores);
-	remarcarCampoErrorInicioSesion(camposConError);
+  mostrarMensajeErrorInicioSesion(camposConError, errores);
+  remarcarCampoErrorInicioSesion(camposConError);
 }
 
 function mostrarMensajeErrorInicioSesion(camposConError, errores) {
-	camposConError.forEach((campo) => {
-		const mensajeError = errores[campo];
+  camposConError.forEach((campo) => {
+    const mensajeError = errores[campo];
 
-		const $mensajeCampoConError = document.querySelector(`.mensaje-error-${campo}-inicio-sesion`);
-		$mensajeCampoConError.textContent = mensajeError;
-		$mensajeCampoConError.style.opacity = 1;
-	});
+    const $mensajeCampoConError = document.querySelector(`.mensaje-error-${campo}-inicio-sesion`);
+    $mensajeCampoConError.textContent = mensajeError;
+    $mensajeCampoConError.style.opacity = 1;
+  });
 }
 
 function remarcarCampoErrorInicioSesion(camposConError) {
-	camposConError.forEach((campo) => {
-		const $camposRegistro = document.querySelector(`.inicio-sesion-${campo}`);
-		$camposRegistro.className += " is-invalid";
-	});
+  camposConError.forEach((campo) => {
+    const $camposRegistro = document.querySelector(`.inicio-sesion-${campo}`);
+    $camposRegistro.className += " is-invalid";
+  });
 }
 
 // ÉXITO CON LOS CAMPOS DE INICIO DE SESIÓN
 
 export function limpiarErroresFormularioInicioSesion() {
-	const camposFormularioInicioSesion = ["email", "contrasena"];
+  const camposFormularioInicioSesion = ["email", "contrasena"];
 
-	ocultarTextoErrorInicioSesion(camposFormularioInicioSesion);
-	ocultarErrorCampoInicioSesion(camposFormularioInicioSesion);
+  ocultarTextoErrorInicioSesion(camposFormularioInicioSesion);
+  ocultarErrorCampoInicioSesion(camposFormularioInicioSesion);
 }
 
 function ocultarErrorCampoInicioSesion(camposFormularioInicioSesion) {
-	camposFormularioInicioSesion.forEach((campoSinError) => {
-		const $campoSinError = document.querySelector(`.inicio-sesion-${campoSinError}`);
-		$campoSinError.classList.remove("is-invalid");
-	});
+  camposFormularioInicioSesion.forEach((campoSinError) => {
+    const $campoSinError = document.querySelector(`.inicio-sesion-${campoSinError}`);
+    $campoSinError.classList.remove("is-invalid");
+  });
 }
 
 function ocultarTextoErrorInicioSesion(camposFormularioInicioSesion) {
-	camposFormularioInicioSesion.forEach((campoSinError) => {
-		const $mensajeError = document.querySelector(`.mensaje-error-${campoSinError}-inicio-sesion`);
-		$mensajeError.textContent = "-";
-		$mensajeError.style.opacity = 0;
-	});
+  camposFormularioInicioSesion.forEach((campoSinError) => {
+    const $mensajeError = document.querySelector(`.mensaje-error-${campoSinError}-inicio-sesion`);
+    $mensajeError.textContent = "-";
+    $mensajeError.style.opacity = 0;
+  });
 }
