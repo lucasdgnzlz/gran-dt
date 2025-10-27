@@ -127,10 +127,18 @@ context("Registro", () => {
     cy.get(".registro-contrasena").should("be.visible").and("have.class", "is-invalid");
     cy.get(".registro-contrasena-confirmacion").should("be.visible").and("have.class", "is-invalid");
 
-    cy.get(".registro-email").should("be.visible").clear().type("ejemplo@algo.com")
+    cy.get(".registro-email").should("be.visible").clear().type("ejemplo@algo.com");
     cy.get(".registro-contrasena").should("be.visible").clear().type("12341234");
     cy.get(".registro-contrasena-confirmacion").should("be.visible").clear().type("12341234");
     cy.get(".boton-registrarse").should("be.visible").click();
+
+    cy.get(".mensaje-error-email-registro").should("not.be.visible");
+    cy.get(".mensaje-error-contrasena-registro").should("not.be.visible");
+    cy.get(".mensaje-error-contrasena-confirmacion-registro").should("not.be.visible");
+
+    cy.get(".registro-email").should("not.be.visible").and("not.have.class", "is-invalid");
+    cy.get(".registro-contrasena").should("not.be.visible").and("not.have.class", "is-invalid");
+    cy.get(".registro-contrasena-confirmacion").should("not.be.visible").and("not.have.class", "is-invalid");
 
     cy.get(".formulario-registro").should("not.be.visible");
 
