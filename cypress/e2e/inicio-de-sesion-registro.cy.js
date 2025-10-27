@@ -48,3 +48,25 @@ context("Inicio de sesión", () => {
     cy.get("#contrasena-inicio-sesion").should("be.visible").and("have.class", "is-invalid");
   });
 });
+
+context("Registro", () => {
+  beforeEach(() => {
+    cy.visit("/"); // URL ya definida en la configuración de Cypress
+  });
+
+  it("Registro exitoso", () => {
+    cy.get(".boton-crear-cuenta").should("be.visible").and("have.text", "Crear cuenta").click();
+    cy.get(".boton-crear-cuenta").should("be.not.visible");
+
+    cy.get(".formulario-registro").should("be.visible");
+    
+    cy.get(".registro-email").should("be.visible").type("ejemplo@algo.com");
+    cy.get(".registro-contrasena").should("be.visible").type("12341234");
+    cy.get(".registro-contrasena-confirmacion").should("be.visible").type("12341234");
+    cy.get(".boton-registrarse").should("be.visible").click();
+
+    cy.get(".formulario-registro").should("not.be.visible");
+
+    cy.get(".mensaje-de-registro-completado").should("be.visible");
+  });
+});
