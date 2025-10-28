@@ -5,6 +5,16 @@ const SELECTORES = {
     INICIAR_SESION: ".boton-iniciar-sesion",
     REGISTRARSE: ".boton-registrarse",
   },
+
+  MENSAJES: {
+    BIENVENIDA: ".mensaje-de-bienvenida",
+    REGISTRO_COMPLETADO: ".mensaje-de-registro-completado",
+    INICIO_SESION_EMAIL_ERROR: ".mensaje-error-email-inicio-sesion",
+    INICIO_SESION_CONTRASENA_ERROR: ".mensaje-error-contrasena-inicio-sesion",
+    REGISTRO_EMAIL_ERROR: ".mensaje-error-email-registro",
+    REGISTRO_CONTRASENA_ERROR: ".mensaje-error-contrasena-registro",
+    REGISTRO_CONTRASENA_CONFIRMACION_ERROR: ".mensaje-error-contrasena-confirmacion-registro",
+  },
 };
 
 context("Inicio de sesión", () => {
@@ -25,11 +35,11 @@ context("Inicio de sesión", () => {
     cy.get("#email-inicio-sesion").should("be.visible").type(datosAccesoPrueba.email);
     cy.get("#contrasena-inicio-sesion").should("be.visible").type(datosAccesoPrueba.contrasenaInicioSesion);
 
-    cy.get(".mensaje-de-bienvenida").should("not.be.visible");
+    cy.get(SELECTORES.MENSAJES.BIENVENIDA).should("not.be.visible");
 
     cy.get(SELECTORES.BOTONES.INICIAR_SESION).should("be.visible").click();
 
-    cy.get(".mensaje-de-bienvenida").should("be.visible");
+    cy.get(SELECTORES.MENSAJES.BIENVENIDA).should("be.visible");
     cy.get(".contenedor-formulario-inicio-de-sesion").should("not.be.visible");
   });
 
@@ -41,13 +51,13 @@ context("Inicio de sesión", () => {
     cy.get("#email-inicio-sesion").should("be.visible").type("mailnocorrecto@ejemplo.com");
     cy.get("#contrasena-inicio-sesion").should("be.visible").type("contrasena123");
 
-    cy.get(".mensaje-de-bienvenida").should("not.be.visible");
+    cy.get(SELECTORES.MENSAJES.BIENVENIDA).should("not.be.visible");
     cy.get(".mensaje-error-email-inicio-sesion").should("not.be.visible");
     cy.get(".mensaje-error-contrasena-inicio-sesion").should("not.be.visible");
 
     cy.get(SELECTORES.BOTONES.INICIAR_SESION).should("be.visible").click();
 
-    cy.get(".mensaje-de-bienvenida").should("not.be.visible");
+    cy.get(SELECTORES.MENSAJES.BIENVENIDA).should("not.be.visible");
     cy.get(".mensaje-error-email-inicio-sesion").should("be.visible").and("have.text", "Email inválido");
     cy.get(".mensaje-error-contrasena-inicio-sesion").should("be.visible").and("have.text", "Contraseña inválida");
 
@@ -63,13 +73,13 @@ context("Inicio de sesión", () => {
     cy.get("#email-inicio-sesion").should("be.visible").type("mailnocorrecto@ejemplo.com");
     cy.get("#contrasena-inicio-sesion").should("be.visible").type("contrasena123");
 
-    cy.get(".mensaje-de-bienvenida").should("not.be.visible");
+    cy.get(SELECTORES.MENSAJES.BIENVENIDA).should("not.be.visible");
     cy.get(".mensaje-error-email-inicio-sesion").should("not.be.visible");
     cy.get(".mensaje-error-contrasena-inicio-sesion").should("not.be.visible");
 
     cy.get(SELECTORES.BOTONES.INICIAR_SESION).should("be.visible").click();
 
-    cy.get(".mensaje-de-bienvenida").should("not.be.visible");
+    cy.get(SELECTORES.MENSAJES.BIENVENIDA).should("not.be.visible");
     cy.get(".mensaje-error-email-inicio-sesion").should("be.visible").and("have.text", "Email inválido");
     cy.get(".mensaje-error-contrasena-inicio-sesion").should("be.visible").and("have.text", "Contraseña inválida");
 
@@ -79,11 +89,11 @@ context("Inicio de sesión", () => {
     cy.get("#email-inicio-sesion").should("be.visible").clear().type(datosAccesoPrueba.email);
     cy.get("#contrasena-inicio-sesion").should("be.visible").clear().type(datosAccesoPrueba.contrasenaInicioSesion);
 
-    cy.get(".mensaje-de-bienvenida").should("not.be.visible");
+    cy.get(SELECTORES.MENSAJES.BIENVENIDA).should("not.be.visible");
 
     cy.get(SELECTORES.BOTONES.INICIAR_SESION).should("be.visible").click();
 
-    cy.get(".mensaje-de-bienvenida").should("be.visible");
+    cy.get(SELECTORES.MENSAJES.BIENVENIDA).should("be.visible");
     cy.get(".contenedor-formulario-inicio-de-sesion").should("not.be.visible");
   });
 });
@@ -106,7 +116,7 @@ context("Registro", () => {
 
     cy.get(".formulario-registro").should("not.be.visible");
 
-    cy.get(".mensaje-de-registro-completado").should("be.visible");
+    cy.get(SELECTORES.MENSAJES.REGISTRO_COMPLETADO).should("be.visible");
   });
 
   it("Registro fallido total", () => {
@@ -119,17 +129,17 @@ context("Registro", () => {
     cy.get(".registro-contrasena").should("be.visible").type("  ");
     cy.get(".registro-contrasena-confirmacion").should("be.visible").type("  ");
 
-    cy.get(".mensaje-error-email-registro").should("not.be.visible");
-    cy.get(".mensaje-error-contrasena-registro").should("not.be.visible");
-    cy.get(".mensaje-error-contrasena-confirmacion-registro").should("not.be.visible");
+    cy.get(SELECTORES.MENSAJES.REGISTRO_EMAIL_ERROR).should("not.be.visible");
+    cy.get(SELECTORES.MENSAJES.REGISTRO_CONTRASENA_ERROR).should("not.be.visible");
+    cy.get(SELECTORES.MENSAJES.REGISTRO_CONTRASENA_CONFIRMACION_ERROR).should("not.be.visible");
 
     cy.get(SELECTORES.BOTONES.REGISTRARSE).should("be.visible").click();
 
     cy.get(".formulario-registro").should("be.visible");
 
-    cy.get(".mensaje-error-email-registro").should("be.visible").and("have.text", "Email inválido");
-    cy.get(".mensaje-error-contrasena-registro").should("be.visible").and("have.text", "Contraseña inválida");
-    cy.get(".mensaje-error-contrasena-confirmacion-registro")
+    cy.get(SELECTORES.MENSAJES.REGISTRO_EMAIL_ERROR).should("be.visible").and("have.text", "Email inválido");
+    cy.get(SELECTORES.MENSAJES.REGISTRO_CONTRASENA_ERROR).should("be.visible").and("have.text", "Contraseña inválida");
+    cy.get(SELECTORES.MENSAJES.REGISTRO_CONTRASENA_CONFIRMACION_ERROR)
       .should("be.visible")
       .and("have.text", "Contraseña inválida");
 
@@ -148,17 +158,17 @@ context("Registro", () => {
     cy.get(".registro-contrasena").should("be.visible").type("  ");
     cy.get(".registro-contrasena-confirmacion").should("be.visible").type("  ");
 
-    cy.get(".mensaje-error-email-registro").should("not.be.visible");
-    cy.get(".mensaje-error-contrasena-registro").should("not.be.visible");
-    cy.get(".mensaje-error-contrasena-confirmacion-registro").should("not.be.visible");
+    cy.get(SELECTORES.MENSAJES.REGISTRO_EMAIL_ERROR).should("not.be.visible");
+    cy.get(SELECTORES.MENSAJES.REGISTRO_CONTRASENA_ERROR).should("not.be.visible");
+    cy.get(SELECTORES.MENSAJES.REGISTRO_CONTRASENA_CONFIRMACION_ERROR).should("not.be.visible");
 
     cy.get(SELECTORES.BOTONES.REGISTRARSE).should("be.visible").click();
 
     cy.get(".formulario-registro").should("be.visible");
 
-    cy.get(".mensaje-error-email-registro").should("be.visible").and("have.text", "Email inválido");
-    cy.get(".mensaje-error-contrasena-registro").should("be.visible").and("have.text", "Contraseña inválida");
-    cy.get(".mensaje-error-contrasena-confirmacion-registro")
+    cy.get(SELECTORES.MENSAJES.REGISTRO_EMAIL_ERROR).should("be.visible").and("have.text", "Email inválido");
+    cy.get(SELECTORES.MENSAJES.REGISTRO_CONTRASENA_ERROR).should("be.visible").and("have.text", "Contraseña inválida");
+    cy.get(SELECTORES.MENSAJES.REGISTRO_CONTRASENA_CONFIRMACION_ERROR)
       .should("be.visible")
       .and("have.text", "Contraseña inválida");
 
@@ -171,9 +181,9 @@ context("Registro", () => {
     cy.get(".registro-contrasena-confirmacion").should("be.visible").clear().type("12341234");
     cy.get(SELECTORES.BOTONES.REGISTRARSE).should("be.visible").click();
 
-    cy.get(".mensaje-error-email-registro").should("not.be.visible");
-    cy.get(".mensaje-error-contrasena-registro").should("not.be.visible");
-    cy.get(".mensaje-error-contrasena-confirmacion-registro").should("not.be.visible");
+    cy.get(SELECTORES.MENSAJES.REGISTRO_EMAIL_ERROR).should("not.be.visible");
+    cy.get(SELECTORES.MENSAJES.REGISTRO_CONTRASENA_ERROR).should("not.be.visible");
+    cy.get(SELECTORES.MENSAJES.REGISTRO_CONTRASENA_CONFIRMACION_ERROR).should("not.be.visible");
 
     cy.get(".registro-email").should("not.be.visible").and("not.have.class", "is-invalid");
     cy.get(".registro-contrasena").should("not.be.visible").and("not.have.class", "is-invalid");
@@ -181,6 +191,6 @@ context("Registro", () => {
 
     cy.get(".formulario-registro").should("not.be.visible");
 
-    cy.get(".mensaje-de-registro-completado").should("be.visible");
+    cy.get(SELECTORES.MENSAJES.REGISTRO_COMPLETADO).should("be.visible");
   });
 });
