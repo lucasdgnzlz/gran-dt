@@ -201,16 +201,16 @@ context("Navegación entre formularios", () => {
   });
 
   it("Debe poder alternar entre inicio de sesión y registro", () => {
+    // Desde inicio de sesión a registro
     cy.get(SELECTORES.BOTONES.YA_TENGO_CUENTA).click();
     cy.get(".formulario-inicio-de-sesion").should("be.visible");
     cy.get(".formulario-registro").should("not.be.visible");
     
-    // Desde inicio de sesión a registro
+    // Desde registro a inicio de sesión
     cy.get(".consulta-registro").click();
     cy.get(".formulario-registro").should("be.visible");
     cy.get(".formulario-inicio-de-sesion").should("not.be.visible");
     
-    // Desde registro a inicio de sesión
     cy.get(".consulta-inicio-sesion").click();
     cy.get(".formulario-inicio-de-sesion").should("be.visible");
     cy.get(".formulario-registro").should("not.be.visible");
